@@ -6,7 +6,6 @@
 #include <cstddef>
 #include "node.h"
 
-
 /* Default constructor. Set data to 0 and next to NULL. */
 Node::Node(){
 	data = 0;
