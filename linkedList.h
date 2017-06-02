@@ -32,6 +32,9 @@ public:
 	void prepend(int val);
 	void insertAfter(int val);
 	void insertBefore(int val);
+
+	/* Other functions */
+	void printList();
 };
 
 #endif

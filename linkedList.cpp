@@ -6,6 +6,8 @@
 #include <cstddef>
 #include "linkedList.h"
 
+using namespace std;
+
 /* Default constructor. Set pointers to NULL, and size to 0. */
 LinkedList::LinkedList(){
 	size = 0;
@@ -193,4 +195,12 @@ void LinkedList::insertBefore(int val){
 	}
 }
 
+void LinkedList::printList(){
+	DoubleNode *temp = front;
+	while (temp != NULL) {
+		cout << temp->getValue() << " ";
+		temp = temp->getNext();
+	}
+	cout << endl;
+}
 

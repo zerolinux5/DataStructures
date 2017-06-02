@@ -30,6 +30,9 @@ int main()
     firstList.append(i);
   }
 
+  cout << "List 1: ";
+  firstList.printList();
+
   if (firstList.getSize() != (abs(minVal) + maxVal)) {
     cout << ERROR << "getSize" << endl;
   }
@@ -89,6 +92,10 @@ int main()
   secondList.insertAfter(2);
   secondList.insertBefore(0);
   /* 0 1 2 */
+
+  cout << "List 2: ";
+  secondList.printList();
+
   secondList.deleteCurrent();
   /* 0 2 */
 
