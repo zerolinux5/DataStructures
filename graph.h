@@ -7,9 +7,15 @@
 
 #include "linkedlist.h"
 
+enum Color {WHITE, GRAY, BLACK};
+
 class Graph {
 	LinkedList *adjList;
+	int *distArray;
+	Color *colorArray;
+	int *parentArray;
 	int size;
+	int source;
 public:
 	Graph(int n);
 	/* Accessor functions */
@@ -22,6 +28,8 @@ public:
 
 	/* Other functions */
 	void printGraph();
+	void BFS(int s);
+	void printSortedGraph();
 };
 
 #endif
