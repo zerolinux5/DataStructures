@@ -29,7 +29,7 @@ void Queue::pop(){
 
 /* Set next node. */
 void Queue::push(int newValue) {
-	Node *nextNode = (Node *)malloc(sizeof(Node *));
+	Node *nextNode = (Node *)malloc(sizeof(Node));
 	nextNode->setValue(newValue);
 	nextNode->setNext(NULL);
 	if (isEmpty()) {

@@ -10,8 +10,6 @@ using namespace std;
 
 const int minVal    = -10000;
 const int maxVal    = 10000;
-const int firstVal  = 10;
-const int secondVal = 20;
 const string ERROR  = "Error found in Node data structure, function: ";
 
 int main()

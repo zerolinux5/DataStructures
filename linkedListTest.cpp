@@ -10,8 +10,6 @@ using namespace std;
 
 const int minVal    = -10;
 const int maxVal    = 10;
-const int firstVal  = 10;
-const int secondVal = 20;
 const string ERROR  = "Error found in Linked List data structure, function: ";
 
 int main()
