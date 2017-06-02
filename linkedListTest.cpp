@@ -134,6 +134,14 @@ int main()
     cout << ERROR << "deleteCurrent" << endl;
   }
 
+  /* Test deleting values. */
+  secondList.deleteVal(1);
+  secondList.deleteVal(0);
+  secondList.printList();
+
+  secondList.append(1);
+  secondList.printList();
+
   secondList.clear();
   /* Verify second list is empty now. */
   if (secondList.getSize() != 0 && !secondList.isEmpty()) {

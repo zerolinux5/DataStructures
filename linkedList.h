@@ -29,6 +29,7 @@ public:
 	void deleteCurrent();
 	void deleteBack();
 	void deleteFront();
+	void deleteVal(int val);
 	void append(int val);
 	void prepend(int val);
 	void insertAfter(int val);

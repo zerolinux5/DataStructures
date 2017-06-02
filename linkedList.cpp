@@ -145,6 +145,31 @@ void LinkedList::deleteFront(){
 	size--;
 }
 
+/* If value is in the list, delete it. */
+void LinkedList::deleteVal(int val) {
+	DoubleNode *temp = front;
+	while (temp != NULL) {
+		if (temp->getValue() == val) {
+			DoubleNode *prevNode = temp->getPrev();
+			DoubleNode *nextNode = temp->getNext();
+			if (prevNode == NULL) {
+				front = nextNode;
+			} else {
+				prevNode->setNext(nextNode);
+			}
+			if (nextNode == NULL) {
+				back = prevNode;
+			} else {
+				nextNode->setPrev(prevNode);
+			}
+			free(temp);
+			size--;
+			break;
+		}
+		temp = temp->getNext();
+	}
+}
+
 void LinkedList::append(int val){
 	DoubleNode* newNode = (DoubleNode*)malloc(sizeof(DoubleNode));
 	newNode->setValue(val);
