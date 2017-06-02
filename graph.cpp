@@ -12,7 +12,7 @@ using namespace std;
 const int INF = INT_MAX;
 const int NIL = -1;
 
-/* Default constructor. Malloc  */
+/* Default constructor.  */
 Graph::Graph(int n){
 	int newN = n + 1;
 	size = newN;
@@ -26,27 +26,38 @@ Graph::Graph(int n){
 	}
 }
 
-/* Check if list is empty. */
+/* Add edge to both u and v adjacency list */
 void Graph::addEdge(int u, int v){
 	addArc(u, v);
 	addArc(v, u);
 }
 
-/* Get size of list. */
+/* Add arc to u adjacency list */
 void Graph::addArc(int u, int v){
 	if (!adjList[u].findVal(v)) {
 		adjList[u].append(v);
 	}
 }
 
-/* Get size of list. */
+/* Remove edge from both u and v adjacency list */
+void Graph::removeEdge(int u, int v){
+	removeArc(u, v);
+	removeArc(v, u);
+}
+
+/* Remove arc from u adjacency list */
+void Graph::removeArc(int u, int v){
+	adjList[u].deleteVal(v);
+}
+
+/* Clear adjacency list of graph. */
 void Graph::clearGraph(){
 	for (int i = 1; i <= size; i++) {
 		adjList->clear();
 	}
 }
 
-/* Get size of list. */
+/* Free all mallocs. */
 void Graph::freeGraph(){
 	clearGraph();
 	free(adjList);
@@ -56,7 +67,7 @@ void Graph::freeGraph(){
 	size = 0;
 }
 
-/* Get value of current pointer. */
+/* Print graph adjacency list. */
 void Graph::printGraph(){
 	for (int i = 1; i <= size; i++) {
 		cout << i << ": ";
@@ -64,6 +75,7 @@ void Graph::printGraph(){
 	}
 }
 
+/* Print nodes based on distance to source. */
 void Graph::printSortedGraph(){
 	bool found = true;
 	int depth = 0;

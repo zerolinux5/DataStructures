@@ -37,14 +37,21 @@ int main()
 	graph2.addEdge(4, 5);
 	graph2.addEdge(5, 6);
 
+	/* Execute BFS on multiple sources to verify algorithm works. */
 	graph2.BFS(1);
 	graph2.printSortedGraph();
 
+	graph2.BFS(5);
+	graph2.printSortedGraph();
 
 	graph2.BFS(6);
 	graph2.printSortedGraph();
 
-	graph2.BFS(5);
+	/* Delete Edges and Arcs and execute BFS again. */
+	graph2.removeEdge(2, 6);
+	graph2.removeEdge(5, 2);
+
+	graph2.BFS(6);
 	graph2.printSortedGraph();
 
 	graph1.freeGraph();

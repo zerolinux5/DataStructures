@@ -23,6 +23,8 @@ public:
 	/* Manipulation functions */
 	void addEdge(int u, int v);
 	void addArc(int u, int v);
+	void removeArc(int u, int v);
+	void removeEdge(int u, int v);
 	void clearGraph();
 	void freeGraph();
 
