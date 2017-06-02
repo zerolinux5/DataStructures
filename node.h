@@ -6,7 +6,6 @@
 #define __NODE_H__
 
 class Node {
-protected:
 	int data;
 	Node *next;
 public:

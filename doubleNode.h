@@ -5,11 +5,10 @@
 #ifndef __DOUBLE_NODE_H__
 #define __DOUBLE_NODE_H__
 
-#include "node.h"
-
-class DoubleNode: public Node {
+class DoubleNode {
 	DoubleNode *prev;
 	DoubleNode *next;
+	int data;
 public:
 	DoubleNode();
 	bool hasPrev();
@@ -17,6 +16,8 @@ public:
 	DoubleNode *getNext();
 	void setPrev(DoubleNode *nextNode);
 	void setNext(DoubleNode *nextNode);
+	int getValue();
+	void setValue(int newData);
 };
 
 #endif

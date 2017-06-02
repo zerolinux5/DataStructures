@@ -37,3 +37,13 @@ void DoubleNode::setPrev(DoubleNode *nextNode) {
 void DoubleNode::setNext(DoubleNode *nextNode) {
 	next = nextNode;
 }
+
+/* Get value of data. */
+int DoubleNode::getValue(){
+	return data;
+}
+
+/* Set data value. */
+void DoubleNode::setValue(int newData){
+	data = newData;
+}
