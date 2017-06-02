@@ -16,6 +16,7 @@ public:
 	LinkedList();
 	/* Accessor functions */
 	bool isEmpty();
+	bool findVal(int val);
 	int getSize();
 	int getCurrent();
 	void moveFront();

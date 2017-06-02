@@ -19,6 +19,20 @@ bool LinkedList::isEmpty(){
 	return (size == 0) ? true : false;
 }
 
+/* Check if val is in list. */
+bool LinkedList::findVal(int val){
+	bool result = false;
+	DoubleNode *temp = front;
+	while (temp != NULL) {
+		if (temp->getValue() == val) {
+			result = true;
+			break;
+		}
+		temp = temp->getNext();
+	}
+	return result;
+}
+
 /* Get size of list. */
 int LinkedList::getSize(){
 	return size;

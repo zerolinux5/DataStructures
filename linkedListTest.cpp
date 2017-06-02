@@ -33,6 +33,15 @@ int main()
   cout << "List 1: ";
   firstList.printList();
 
+  /* Test findVal function. */
+  if (firstList.findVal(0) != true) {
+    cout << ERROR << "findVal" << endl;
+  }
+
+  if (firstList.findVal(11) != false) {
+    cout << ERROR << "findVal" << endl;
+  }
+
   if (firstList.getSize() != (abs(minVal) + maxVal)) {
     cout << ERROR << "getSize" << endl;
   }
@@ -98,6 +107,11 @@ int main()
 
   secondList.deleteCurrent();
   /* 0 2 */
+
+  /* Test findVal function. */
+  if (secondList.findVal(2) != true) {
+    cout << ERROR << "findVal" << endl;
+  }
 
   /* Verify second list has two entries. */
   if (secondList.getSize() != 2) {
