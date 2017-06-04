@@ -55,19 +55,20 @@ int main()
 	graph2.printSortedBFSGraph();
 
 	/* Test DFS. */
-	graph2.removeEdge(2, 4);
 	graph2.addEdge(2, 6);
+	graph2.addEdge(2, 5);
 	graph2.DFS();
 	graph2.printSortedDFSGraph();
 
 	graph2.removeEdge(1, 2);
+	graph2.removeEdge(2, 4);
+	graph2.removeEdge(5, 4);
+	graph2.addEdge(2, 6);
 	graph2.DFS();
 	graph2.printSortedDFSGraph();
 
-	graph2.addEdge(1, 2);
-	graph2.addEdge(2, 4);
-	graph2.addEdge(2, 5);
-	graph2.DFS();
+	/* Print single DFS Graph. */
+	graph2.DFSSource(1);
 	graph2.printSortedDFSGraph();
 
 	graph1.freeGraph();

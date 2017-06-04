@@ -166,6 +166,7 @@ void Graph::BFS(int s) {
 		colorArray[parent] = BLACK;
 	}
 }
+
 /* Execute depth first search on the given graph. */
 void Graph::DFS() {
 	time = 0;
@@ -180,6 +181,19 @@ void Graph::DFS() {
 			DFSVisit(i);
 		}
 	}
+}
+
+/* Execute depth first search on the given graph using only the
+ * source node. */
+void Graph::DFSSource(int s) {
+	time = 0;
+	/* Set defaults*/
+	for (int i = 1; i < size; i++) {
+		colorArray[i]  = WHITE;
+		parentArray[i] = NIL;
+	}
+	/* Set source to found and 0 dist. */
+	DFSVisit(s);
 }
 
 /* Recursive logic for each node in DFS. */

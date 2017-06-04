@@ -36,6 +36,7 @@ public:
 	void printGraph();
 	void BFS(int s);
 	void DFS();
+	void DFSSource(int s);
 	void printSortedBFSGraph();
 	void printSortedDFSGraph();
 };
