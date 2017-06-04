@@ -39,20 +39,36 @@ int main()
 
 	/* Execute BFS on multiple sources to verify algorithm works. */
 	graph2.BFS(1);
-	graph2.printSortedGraph();
+	graph2.printSortedBFSGraph();
 
 	graph2.BFS(5);
-	graph2.printSortedGraph();
+	graph2.printSortedBFSGraph();
 
 	graph2.BFS(6);
-	graph2.printSortedGraph();
+	graph2.printSortedBFSGraph();
 
 	/* Delete Edges and Arcs and execute BFS again. */
 	graph2.removeEdge(2, 6);
 	graph2.removeEdge(5, 2);
 
 	graph2.BFS(6);
-	graph2.printSortedGraph();
+	graph2.printSortedBFSGraph();
+
+	/* Test DFS. */
+	graph2.removeEdge(2, 4);
+	graph2.addEdge(2, 6);
+	graph2.DFS();
+	graph2.printSortedDFSGraph();
+
+	graph2.removeEdge(1, 2);
+	graph2.DFS();
+	graph2.printSortedDFSGraph();
+
+	graph2.addEdge(1, 2);
+	graph2.addEdge(2, 4);
+	graph2.addEdge(2, 5);
+	graph2.DFS();
+	graph2.printSortedDFSGraph();
 
 	graph1.freeGraph();
 	graph2.freeGraph();

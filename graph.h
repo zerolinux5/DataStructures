@@ -12,10 +12,14 @@ enum Color {WHITE, GRAY, BLACK};
 class Graph {
 	LinkedList *adjList;
 	int *distArray;
+	int *discoveredArray;
+	int *foundArray;
 	Color *colorArray;
 	int *parentArray;
 	int size;
 	int source;
+	int time;
+	void DFSVisit(int node);
 public:
 	Graph(int n);
 	/* Accessor functions */
@@ -31,7 +35,9 @@ public:
 	/* Other functions */
 	void printGraph();
 	void BFS(int s);
-	void printSortedGraph();
+	void DFS();
+	void printSortedBFSGraph();
+	void printSortedDFSGraph();
 };
 
 #endif

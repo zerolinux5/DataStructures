@@ -17,10 +17,12 @@ Graph::Graph(int n){
 	int newN = n + 1;
 	size = newN;
 	source = -1;
-	adjList     = (LinkedList *)malloc(sizeof(LinkedList) * newN);
-	colorArray  = (Color *)malloc(sizeof(Color) * newN);
-	distArray   = (int *)malloc(sizeof(int) * newN);
-	parentArray = (int *)malloc(sizeof(int) * newN);
+	adjList         = (LinkedList *)malloc(sizeof(LinkedList) * newN);
+	colorArray      = (Color *)malloc(sizeof(Color) * newN);
+	distArray       = (int *)malloc(sizeof(int) * newN);
+	discoveredArray = (int *)malloc(sizeof(int) * newN);
+	foundArray      = (int *)malloc(sizeof(int) * newN);
+	parentArray     = (int *)malloc(sizeof(int) * newN);
 	for (int i = 1; i < size; i++) {
 		adjList[i].clear();
 	}
@@ -62,6 +64,8 @@ void Graph::freeGraph(){
 	clearGraph();
 	free(adjList);
 	free(distArray);
+	free(discoveredArray);
+	free(foundArray);
 	free(parentArray);
 	free(colorArray);
 	size = 0;
@@ -76,7 +80,7 @@ void Graph::printGraph(){
 }
 
 /* Print nodes based on distance to source. */
-void Graph::printSortedGraph(){
+void Graph::printSortedBFSGraph(){
 	bool found = true;
 	int depth = 0;
 	cout << "With source at: " << source << endl;
@@ -91,6 +95,37 @@ void Graph::printSortedGraph(){
 		}
 		cout << endl;
 		depth++;
+	}
+	cout << "----------" << endl;
+}
+
+/* Print nodes based on found time. */
+void Graph::printSortedDFSGraph(){
+	LinkedList printList;
+	for (int i = 1; i < size; i++) {
+		printList.append(i);
+	}
+	while (!printList.isEmpty()) {
+		printList.moveFront();
+		int sourceNode = printList.getCurrent();
+		if (sourceNode == -1) {
+			break;
+		}
+		Queue traversalQueue;
+		cout << "Start of tree" << endl;
+		traversalQueue.push(sourceNode);
+		while (!traversalQueue.isEmpty()) {
+			int newNode = traversalQueue.getFront();
+			printList.deleteVal(newNode);
+			cout << newNode << " ";
+			traversalQueue.pop();
+			for (int i = 1; i < size; i++) {
+				if (parentArray[i] == newNode) {
+					traversalQueue.push(i);
+				}
+			}
+		}
+		cout << endl << "End of tree" << endl;
 	}
 	cout << "----------" << endl;
 }
@@ -130,5 +165,39 @@ void Graph::BFS(int s) {
 		}
 		colorArray[parent] = BLACK;
 	}
+}
+/* Execute depth first search on the given graph. */
+void Graph::DFS() {
+	time = 0;
+	/* Set defaults*/
+	for (int i = 1; i < size; i++) {
+		colorArray[i]  = WHITE;
+		parentArray[i] = NIL;
+	}
+	/* Set source to found and 0 dist. */
+	for (int i = 1; i < size; i++) {
+		if (colorArray[i] == WHITE) {
+			DFSVisit(i);
+		}
+	}
+}
+
+/* Recursive logic for each node in DFS. */
+void Graph::DFSVisit(int node) {
+	time++;
+	discoveredArray[node] = time;
+	colorArray[node] = GRAY;
+	adjList[node].moveFront();
+	while (adjList[node].getCurrent() != -1) {
+		int newNode = adjList[node].getCurrent();
+		if (colorArray[newNode] == WHITE) {
+			parentArray[newNode] = node;
+			DFSVisit(newNode);
+		}
+		adjList[node].moveNext();
+	}
+	colorArray[node] = BLACK;
+	time++;
+	foundArray[node] = time;
 }
 
