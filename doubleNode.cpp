@@ -17,6 +17,11 @@ bool DoubleNode::hasPrev(){
 	return (prev == NULL) ? false : true;
 }
 
+/* Check if node points to another Node. */
+bool DoubleNode::hasNext(){
+	return (next == NULL) ? false : true;
+}
+
 /* Return previous node. */
 DoubleNode *DoubleNode::getPrev(){
 	return prev;

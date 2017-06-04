@@ -12,6 +12,7 @@ class DoubleNode {
 public:
 	DoubleNode();
 	bool hasPrev();
+	bool hasNext();
 	DoubleNode *getPrev();
 	DoubleNode *getNext();
 	void setPrev(DoubleNode *nextNode);
